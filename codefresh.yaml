@@ -1,0 +1,14 @@
+version: '1.0'
+
+steps:
+        
+  build:
+    type: build
+    tag: latest
+    image_name: codefresh/semver
+
+  push:
+    type: push
+    candidate: ${{build}}
+    tag: latest
+    registry: "dockerhub"
